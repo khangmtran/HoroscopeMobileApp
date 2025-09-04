@@ -3,6 +3,14 @@ import { StyleSheet, Dimensions } from "react-native";
 const { height } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
+  whiteNormalText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  hStackSpaceB:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   container: {
     flex: 1,
   },
@@ -63,7 +71,10 @@ export const styles = StyleSheet.create({
     backgroundColor: "gray",
     alignSelf: "center",
     borderRadius: 5,
-    // marginBottom: 20,
+  },
+    sheetCloseButton: {
+    alignSelf: "flex-end",
+    padding: 10,
   },
   sheetTitle: {
     fontSize: 20,
@@ -72,12 +83,15 @@ export const styles = StyleSheet.create({
     color: "white",
     alignSelf: "center",
   },
-  sheetCloseButton: {
-    alignSelf: "flex-end",
+  sheetBgContent:{
+    backgroundColor: "rgba(56, 52, 52, 1)",
+    borderRadius: 10,
     padding: 10,
   },
-  sheetCloseButtonText: {
+  sheetBgSection:{
     color: "white",
     fontSize: 16,
-  },
+    fontWeight: "bold",
+    marginBottom: 5,
+  }
 });

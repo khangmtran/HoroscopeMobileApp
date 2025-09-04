@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { View, Text, StatusBar, TouchableOpacity, Modal } from "react-native";
 import { styles } from "./styles";
+import Header from "./components/Header";
+import WidgetPreview from "./components/WidgetPreview";
+import CustomizeButton from "./components/CustomizeButton";
 
 export default function App() {
   const [showCustomize, setShowCustomize] = useState(false);
@@ -9,29 +12,13 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="black" />
 
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Daily Horoscope</Text>
-        <Text style={styles.headerSubtitle}>Leo</Text>
-      </View>
+      <Header />
 
-      {/* Main Content Area */}
+      {/* Main Content*/}
       <View style={styles.mainContent}>
-        {/* Widget */}
-        <View style={styles.widgetPreview}>
-          <Text style={styles.horoscopeText}>Quotes...</Text>
-          <Text style={styles.horoscopeText}>
-            {new Date().toLocaleDateString()}
-          </Text>
-        </View>
+        <WidgetPreview />
 
-        {/* Custom Button */}
-        <TouchableOpacity
-          style={styles.customizeButton}
-          onPress={() => setShowCustomize(true)}
-        >
-          <Text style={styles.customizeButtonText}>⚙️ Customize</Text>
-        </TouchableOpacity>
+        <CustomizeButton onPress={() => setShowCustomize(true)} />
 
         {/* Custom Sheet */}
         <Modal
@@ -47,9 +34,18 @@ export default function App() {
                 style={styles.sheetCloseButton}
                 onPress={() => setShowCustomize(false)}
               >
-                <Text style={styles.sheetCloseButtonText}>X</Text>
+                <Text style={styles.whiteNormalText}>X</Text>
               </TouchableOpacity>
               <Text style={styles.sheetTitle}>Customize Your Horoscope</Text>
+              <Text style={styles.sheetBgSection}>BACKGROUND</Text>
+              <View style={styles.sheetBgContent}>
+                <View style={styles.hStackSpaceB}>
+                  <Text style={styles.whiteNormalText}>Background Colors</Text>
+                  <TouchableOpacity>
+                    <Text style={styles.whiteNormalText}>O</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
             </View>
           </View>
         </Modal>
