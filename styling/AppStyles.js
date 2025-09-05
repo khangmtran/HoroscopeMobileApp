@@ -4,18 +4,28 @@ const { height } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
   whiteNormalText: {
-    color: 'white',
+    color: "white",
     fontSize: 16,
   },
   blackNormalText: {
-    color: 'black',
+    color: "black",
     fontSize: 16,
   },
-  hStackSpaceB:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  whiteBigText: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
   },
-  container: {
+  blackBigText: {
+    color: "black",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  hStackSpaceB: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  mainContainer: {
     flex: 1,
   },
   header: {
@@ -57,9 +67,7 @@ export const styles = StyleSheet.create({
     bottom: 40,
     left: 20,
   },
-  customizeButtonText: {
-
-  },
+  customizeButtonText: {},
   modal: {
     flex: 1,
     justifyContent: "flex-end",
@@ -78,7 +86,7 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
     borderRadius: 5,
   },
-    sheetCloseButton: {
+  sheetCloseButton: {
     alignSelf: "flex-end",
     padding: 10,
   },
@@ -89,12 +97,12 @@ export const styles = StyleSheet.create({
     color: "white",
     alignSelf: "center",
   },
-  sheetBgContent:{
+  sheetBgContent: {
     backgroundColor: "rgba(56, 52, 52, 1)",
     borderRadius: 10,
     padding: 10,
   },
-  sheetBgSection:{
+  sheetBgSection: {
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
@@ -107,11 +115,12 @@ export const styles = StyleSheet.create({
     padding: 20,
     maxHeight: height * 0.7,
   },
-  colorContainer:{
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+  colorContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
     padding: 5,
     gap: 5,
+    marginBottom: 20,
   },
   colorItem: {
     width: 20,

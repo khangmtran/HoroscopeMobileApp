@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { View, StatusBar } from "react-native";
-import { styles } from "./styles";
+import { styles } from "./styling/AppStyles";
 import Header from "./components/Header";
 import WidgetPreview from "./components/WidgetPreview";
 import CustomizeButton from "./components/CustomizeButton";
@@ -32,7 +32,7 @@ export default function App() {
   ];
 
   return (
-    <View style={styles.container}>
+    <View style={styles.mainContainer}>
       <StatusBar barStyle="light-content" backgroundColor="black" />
 
       <Header />
@@ -58,6 +58,7 @@ export default function App() {
           onClose={() => setShowColorModal(false)}
           colorPalette={colorPalette}
           changeBgColor={(color) => setWidgetBackgroundColor(color)}
+          widgetBackgroundColor={widgetBackgroundColor}
         />
       </View>
     </View>
