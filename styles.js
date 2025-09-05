@@ -7,6 +7,10 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
   },
+  blackNormalText: {
+    color: 'black',
+    fontSize: 16,
+  },
   hStackSpaceB:{
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -53,8 +57,10 @@ export const styles = StyleSheet.create({
     bottom: 40,
     left: 20,
   },
-  customizeButtonText: {},
-  customModal: {
+  customizeButtonText: {
+
+  },
+  modal: {
     flex: 1,
     justifyContent: "flex-end",
   },
@@ -93,5 +99,24 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 5,
-  }
+  },
+  colorSheet: {
+    backgroundColor: "rgba(240, 240, 240, 1)",
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    padding: 20,
+    maxHeight: height * 0.7,
+  },
+  colorContainer:{
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    padding: 5,
+    gap: 5,
+  },
+  colorItem: {
+    width: 20,
+    height: 20,
+    borderWidth: 1,
+    borderRadius: 5,
+  },
 });

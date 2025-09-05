@@ -1,12 +1,35 @@
 import { useState } from "react";
-import { View, Text, StatusBar, TouchableOpacity, Modal } from "react-native";
+import { View, StatusBar } from "react-native";
 import { styles } from "./styles";
 import Header from "./components/Header";
 import WidgetPreview from "./components/WidgetPreview";
 import CustomizeButton from "./components/CustomizeButton";
+import CustomizeModal from "./components/CustomizeModal";
+import ColorModal from "./components/ColorModal";
+import oc from "open-color";
 
 export default function App() {
-  const [showCustomize, setShowCustomize] = useState(false);
+  const [showCustomizeModal, setShowCustomizeModal] = useState(false);
+  const [showColorModal, setShowColorModal] = useState(false);
+  const [widgetBackgroundColor, setWidgetBackgroundColor] = useState("white");
+
+  const colorPalette = [
+    "white",
+    ...oc.gray,
+    "black",
+    ...oc.red,
+    ...oc.pink,
+    ...oc.grape,
+    ...oc.violet,
+    ...oc.indigo,
+    ...oc.blue,
+    ...oc.cyan,
+    ...oc.teal,
+    ...oc.green,
+    ...oc.lime,
+    ...oc.yellow,
+    ...oc.orange,
+  ];
 
   return (
     <View style={styles.container}>
@@ -16,39 +39,26 @@ export default function App() {
 
       {/* Main Content*/}
       <View style={styles.mainContent}>
-        <WidgetPreview />
+        {/* widget */}
+        <WidgetPreview widgetBackgroundColor={widgetBackgroundColor} />
 
-        <CustomizeButton onPress={() => setShowCustomize(true)} />
+        {/* customize button */}
+        <CustomizeButton onPress={() => setShowCustomizeModal(true)} />
 
-        {/* Custom Sheet */}
-        <Modal
-          visible={showCustomize}
-          transparent={true}
-          animationType="slide"
-          onRequestClose={() => setShowCustomize(false)}
-        >
-          <View style={styles.customModal}>
-            <View style={styles.bottomSheet}>
-              <View style={styles.sheetHandle} />
-              <TouchableOpacity
-                style={styles.sheetCloseButton}
-                onPress={() => setShowCustomize(false)}
-              >
-                <Text style={styles.whiteNormalText}>X</Text>
-              </TouchableOpacity>
-              <Text style={styles.sheetTitle}>Customize Your Horoscope</Text>
-              <Text style={styles.sheetBgSection}>BACKGROUND</Text>
-              <View style={styles.sheetBgContent}>
-                <View style={styles.hStackSpaceB}>
-                  <Text style={styles.whiteNormalText}>Background Colors</Text>
-                  <TouchableOpacity>
-                    <Text style={styles.whiteNormalText}>O</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          </View>
-        </Modal>
+        {/* Customize Modal*/}
+        <CustomizeModal
+          showCustomizeModal={showCustomizeModal}
+          onClose={() => setShowCustomizeModal(false)}
+          openColorModal={() => setShowColorModal(true)}
+        />
+
+        {/* Color Modal */}
+        <ColorModal
+          showColorModal={showColorModal}
+          onClose={() => setShowColorModal(false)}
+          colorPalette={colorPalette}
+          changeBgColor={(color) => setWidgetBackgroundColor(color)}
+        />
       </View>
     </View>
   );
